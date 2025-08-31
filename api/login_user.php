@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode([
             "user" => [
                 "id" => $dbUser['id'],
-                "name" => $dbUser['fullname'],
+                "fullname" => $dbUser['fullname'],
                 "email" => $dbUser['email']
             ]
         ]);
