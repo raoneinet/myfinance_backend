@@ -30,7 +30,8 @@ try {
                             category_id,
                             standard_category, 
                             transaction_value, 
-                            transaction_type, 
+                            transaction_type,
+                            fixed_expense, 
                             transaction_desc, 
                             transaction_date 
                     FROM finance WHERE user_id = ?
