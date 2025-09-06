@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 session_start([
     'cookie_lifetime' => 86400, // Sessão válida por 1 dia
     'cookie_secure' => false,    // true se usar HTTPS
