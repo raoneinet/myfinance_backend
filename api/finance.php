@@ -27,7 +27,8 @@ try {
         $stmt = $conn->prepare(
             "SELECT 
                             id,
-                            category_id, 
+                            category_id,
+                            standard_category, 
                             transaction_value, 
                             transaction_type, 
                             transaction_desc, 
