@@ -18,7 +18,7 @@ try {
     $stmt = $conn->prepare(
         "SELECT 
                     SUM(CASE WHEN standard_category = 'Recebimento' THEN transaction_value ELSE 0 END) AS extra_income_total,
-                    SUM(transaction_value) AS total_geral
+                    SUM(CASE WHEN standard_category != 'Recebimento' THEN transaction_value ELSE 0 END) AS total_geral
                 FROM finance
                 WHERE user_id = ?"
     );
