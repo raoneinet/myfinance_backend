@@ -35,7 +35,7 @@ try {
                             transaction_desc, 
                             transaction_date 
                     FROM finance WHERE user_id = ?
-                    ORDER BY id DESC"
+                    ORDER BY id ASC"
         );
         $stmt->execute([$userId]);
         $user_finance = $stmt->fetchAll(PDO::FETCH_ASSOC);
