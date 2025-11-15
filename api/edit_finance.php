@@ -29,12 +29,12 @@ try {
 
     $required = [
         'id',
-        'expense_value',
-        'expense_standard_category',
-        'expense_payment_type',
-        'expense_isFixed',
-        'expense_desc',
-        'expense_date'
+        'transaction_value',
+        'standard_category',
+        'transaction_type',
+        'fixed_expense',
+        'transaction_desc',
+        'transaction_date'
     ];
 
     foreach ($required as $field) {
@@ -60,12 +60,12 @@ try {
     );
 
     $stmt->execute([
-        $data['expense_value'],
-        $data['expense_standard_category'],
-        $data['expense_payment_type'],
-        $data['expense_isFixed'],
-        $data['expense_desc'],
-        $data['expense_date'],
+        $data['transaction_value'],
+        $data['standard_category'],
+        $data['transaction_type'],
+        $data['fixed_expense'],
+        $data['transaction_desc'],
+        $data['transaction_date'],
         $data['id'],
         $_SESSION['user_id']
     ]);
