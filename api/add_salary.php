@@ -42,8 +42,9 @@ try {
                 salary_amount,
                 salary_desc,
                 salary_company,
-                payment_date
-                ) VALUES (?, ?, ?, ?, ?)"
+                payment_date,
+                created_at
+                ) VALUES (?, ?, ?, ?, ?, ?)"
     );
 
     $stmt->execute([
@@ -51,7 +52,8 @@ try {
         $data['salary_amount'],
         $data['salary_desc'] ?? null,
         $data['salary_company'] ?? null,
-        $data['payment_date']
+        $data['payment_date'],
+        $data['created_at']
     ]);
 
     echo json_encode(["success" => true, "message" => "Movimento adicionado com sucesso"]);

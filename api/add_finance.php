@@ -68,8 +68,9 @@ try {
                 transaction_type,
                 fixed_expense,
                 transaction_desc,
-                transaction_date
-                ) VALUES (?, ?, ?, ?, ?, ?, ?)"
+                transaction_date,
+                created_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
     );
 
     $stmt->execute([
@@ -79,7 +80,8 @@ try {
         $data['expense_payment_type'],
         $data['expense_isFixed'],
         $data['expense_desc'],
-        $data['expense_date']
+        $data['expense_date'],
+        $data['created_at']
     ]);
 
     echo json_encode(["success" => true, "message" => "Movimento adicionado com sucesso"]);
