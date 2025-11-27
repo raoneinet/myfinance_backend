@@ -21,6 +21,9 @@ try {
         exit;
     }
 
+    $current_page = $_GET['page'] ?? 1;
+    $page_size = $_GET['size'] ?? 15;
+    $offset = ($current_page - 1) * $page_size;
     $userId = $_SESSION['user_id'];
 
     if ($userId) {
@@ -34,15 +37,17 @@ try {
                             fixed_expense, 
                             transaction_desc, 
                             transaction_date 
-                    FROM finance WHERE user_id = ?
-                    ORDER BY transaction_date DESC"
+                    FROM finance 
+                    WHERE user_id = ?
+                    ORDER BY transaction_date DESC
+                    LIMIT $page_size OFFSET $offset"
         );
-        $stmt->execute([$userId]);
+        $stmt->execute([$userId] );
         $user_finance = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         echo json_encode([
             'user_id' => $userId,
-            'finance' => $user_finance ?? []
+            'finance' => $user_finance ?? [],
         ]);
     }
 } catch (PDOException $e) {
